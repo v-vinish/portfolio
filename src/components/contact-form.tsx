@@ -40,7 +40,7 @@ export function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/send', {
+      const response = await fetch('/.netlify/functions/sendMail', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -48,7 +48,9 @@ export function ContactForm() {
         body: JSON.stringify({ name, email, message }),
       });
 
-      if (response.ok) {
+      const result = await response.json();
+
+      if (response.ok && result.success) {
         toast({
           title: "Success!",
           description: "Your message has been sent successfully.",
@@ -57,8 +59,7 @@ export function ContactForm() {
         setEmail('');
         setMessage('');
       } else {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to send message');
+        throw new Error(result.error || 'Failed to send message');
       }
     } catch (error) {
       console.error("Failed to send email:", error);

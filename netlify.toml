@@ -1,0 +1,14 @@
+# This file configures the build settings for Netlify.
+[build]
+  # This tells Netlify to use the next command to build your site.
+  command = "next build"
+  # This is the directory that Netlify will publish.
+  publish = ".next"
+
+[functions]
+  # This specifies the directory where your serverless functions are located.
+  directory = "netlify/functions"
+
+[[plugins]]
+  # This plugin helps with Next.js specific build steps on Netlify.
+  package = "@netlify/plugin-nextjs"
