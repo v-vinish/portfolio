@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function About() {
   return (
-    <div className="container mx-auto grid items-center justify-center gap-12 px-4 md:px-6 lg:grid-cols-2 lg:gap-20 py-12 md:py-16">
+    <div className="container mx-auto grid items-center justify-center gap-12 px-4 md:px-6 lg:grid-cols-2 lg:gap-20 py-12">
       <div className="space-y-4">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">About Me</h2>
         <p className="text-muted-foreground md:text-lg/relaxed">
