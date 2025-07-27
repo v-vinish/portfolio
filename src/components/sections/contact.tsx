@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { ContactForm } from '@/components/contact-form';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone } from 'lucide-react';
 
 export default function Contact() {
   return (
@@ -16,6 +16,11 @@ export default function Contact() {
             Have a project in mind, a question, or just want to say hi? I'd love to hear from you. Fill out the form or reach out via email or social media.
           </p>
           <div className="flex gap-4">
+            <Button asChild variant="outline" size="icon">
+              <Link href="tel:+919025349047" aria-label="Phone">
+                <Phone className="h-5 w-5" />
+              </Link>
+            </Button>
             <Button asChild variant="outline" size="icon">
               <Link href="mailto:viniv6687@gmail.com" aria-label="Email">
                 <Mail className="h-5 w-5" />
