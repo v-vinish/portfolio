@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { MoveRight, Github, Linkedin, Mail } from 'lucide-react';
+import { MoveRight, Github, Linkedin, Mail, Phone } from 'lucide-react';
 
 const letterContainerVariants = {
   before: { transition: { staggerChildren: 0.05 } },
@@ -80,9 +80,6 @@ export default function Hero() {
               <MoveRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
-          <Button asChild variant="outline" size="lg">
-            <Link href="#contact">Get In Touch</Link>
-          </Button>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -90,6 +87,11 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="flex justify-center gap-4 mt-4"
         >
+            <Button asChild variant="outline" size="icon">
+              <Link href="tel:+919025349047" aria-label="Phone">
+                <Phone className="h-5 w-5" />
+              </Link>
+            </Button>
             <Button asChild variant="outline" size="icon">
               <Link href="mailto:viniv6687@gmail.com" aria-label="Email">
                 <Mail className="h-5 w-5" />
