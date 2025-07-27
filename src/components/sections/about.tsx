@@ -56,7 +56,7 @@ export default function About() {
             <Card className="w-full max-w-sm border-2 border-primary/20 hover:border-primary/50 transition-all duration-300 transform-style-3d hover:shadow-2xl hover:shadow-primary/20">
                 <CardHeader className="items-center pt-8">
                     <Avatar className="w-32 h-32 border-4 border-primary">
-                        <AvatarImage src="https://i.postimg.cc/3xRxy2pq/Whats-App-Image-2025-07-25-at-12-11-09-f1edb528.jpg" alt="Vinish V" />
+                        <AvatarImage src="https://i.postimg.cc/kgMqBXnj/AI-LOOK.jpg" alt="Vinish V" />
                         <AvatarFallback>VV</AvatarFallback>
                     </Avatar>
                 </CardHeader>
