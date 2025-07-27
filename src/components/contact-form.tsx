@@ -2,7 +2,6 @@
 "use client";
 
 import React, { useState } from "react";
-import emailjs from "@emailjs/browser";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -26,7 +25,7 @@ export function ContactForm() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!name || !email || !message) {
@@ -40,43 +39,37 @@ export function ContactForm() {
 
     setIsSubmitting(true);
 
-    const templateParams = {
-      name: name,
-      email: email,
-      message: message,
-    };
-
-    // Service ID, Template ID, Public Key from user
-    const serviceID = "service_q0ffpah";
-    const templateID = "cc784su";
-    const publicKey = "ifoS_q1tHPyT4brhY";
-
-    console.log("Sending with data:", templateParams);
-
-    emailjs
-      .send(serviceID, templateID, templateParams, publicKey)
-      .then(
-        (result) => {
-          console.log("Email sent:", result.text);
-          toast({
-            title: "Success!",
-            description: "Your message has been sent successfully.",
-          });
-          setName('');
-          setEmail('');
-          setMessage('');
-          setIsSubmitting(false);
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-        (error) => {
-          console.error("EmailJS Error:", error.text || error);
-          toast({
-            title: "Error",
-            description: "Failed to send the message, please try again.",
-            variant: "destructive",
-          });
-          setIsSubmitting(false);
-        }
-      );
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Success!",
+          description: "Your message has been sent successfully.",
+        });
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to send message');
+      }
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send the message, please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
