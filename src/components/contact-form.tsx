@@ -83,11 +83,11 @@ export function ContactForm() {
     <form onSubmit={sendEmail} className="space-y-4">
       <div>
         <Label htmlFor="name">Name</Label>
-        <Input id="name" name="name" placeholder="Your Name" required value={name} onChange={(e) => setName(e.target.value)} />
+        <Input id="name" name="from_name" placeholder="Your Name" required value={name} onChange={(e) => setName(e.target.value)} />
       </div>
       <div>
         <Label htmlFor="email">Email</Label>
-        <Input id="email" name="email" type="email" placeholder="your@email.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
+        <Input id="email" name="reply_to" type="email" placeholder="your@email.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
       </div>
       <div>
         <Label htmlFor="message">Message</Label>
