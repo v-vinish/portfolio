@@ -15,13 +15,9 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <About />
-        <Separator className="my-16 bg-border/20" />
         <Experience />
-        <Separator className="my-16 bg-border/20" />
         <Projects />
-        <Separator className="my-16 bg-border/20" />
         <Skills />
-        <Separator className="my-16 bg-border/20" />
         <Contact />
       </main>
       <Footer />

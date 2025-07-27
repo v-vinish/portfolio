@@ -27,12 +27,12 @@ export default function Header() {
 
   return (
     <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'border-b border-border/40 bg-background/95 backdrop-blur-sm' : ''}`}>
-      <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-          <Code2 className="h-6 w-6 text-primary" />
+      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
+        <Link href="/" className="flex items-center gap-2 font-bold text-xl">
+          <Code2 className="h-7 w-7 text-primary" />
           <span>Vinish V</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+        <nav className="hidden md:flex items-center gap-8 text-base font-medium">
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href} className="transition-colors hover:text-primary">
               {link.label}

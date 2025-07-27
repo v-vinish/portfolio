@@ -37,20 +37,30 @@ const projects: Project[] = [
     imageHint: "racing game",
     tags: ["OpenCV", "MediaPipe", "Python", "Gesture Recognition"],
   },
+  {
+    title: "Portfolio Website",
+    description: "My personal space on the internet to showcase my work.",
+    longDescription: "A personal portfolio website built with Next.js and Tailwind CSS to showcase my projects, skills, and experience. It's designed to be fully responsive and performant.",
+    image: "https://placehold.co/600x400.png",
+    imageHint: "developer portfolio",
+    tags: ["Next.js", "React", "Tailwind CSS"],
+    liveUrl: "/",
+    repoUrl: "https://github.com/vinish-v/portfolio"
+  }
 ];
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="w-full py-16 md:py-24 bg-card/50">
+    <section id="projects" className="w-full bg-card/50">
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="text-3xl font-bold tracking-tighter text-center sm:text-4xl md:text-5xl font-headline mb-12">
           Featured Projects
         </h2>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
-            <Card key={index} className="flex flex-col overflow-hidden group hover:border-primary/50 transition-all">
+            <Card key={index} className="flex flex-col overflow-hidden group transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-2">
               <CardHeader className="p-0">
                 <div className="overflow-hidden rounded-t-lg">
                   <Image
