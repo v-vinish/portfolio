@@ -1,6 +1,7 @@
+
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
@@ -19,22 +20,37 @@ function SubmitButton({ isSubmitting }: { isSubmitting: boolean }) {
 }
 
 export function ContactForm() {
-  const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!formRef.current) return;
+    if (!name || !email || !message) {
+      toast({
+        title: "Error",
+        description: "Please fill out all fields.",
+        variant: "destructive",
+      });
+      return;
+    }
 
     setIsSubmitting(true);
 
+    const templateParams = {
+      name: name,
+      email: email,
+      message: message,
+    };
+
     emailjs
-      .sendForm(
+      .send(
         "service_q0ffpah",
         "template_48m2slc",
-        formRef.current,
+        templateParams,
         "ifoS_q1tHPyT4brhY"
       )
       .then(
@@ -43,7 +59,9 @@ export function ContactForm() {
             title: "Success!",
             description: "Your message has been sent successfully.",
           });
-          formRef.current?.reset();
+          setName('');
+          setEmail('');
+          setMessage('');
           setIsSubmitting(false);
         },
         (error) => {
@@ -58,18 +76,18 @@ export function ContactForm() {
   };
 
   return (
-    <form ref={formRef} onSubmit={sendEmail} className="space-y-4">
+    <form onSubmit={sendEmail} className="space-y-4">
       <div>
         <Label htmlFor="name">Name</Label>
-        <Input id="name" name="name" placeholder="Your Name" required />
+        <Input id="name" name="name" placeholder="Your Name" required value={name} onChange={(e) => setName(e.target.value)} />
       </div>
       <div>
         <Label htmlFor="email">Email</Label>
-        <Input id="email" name="email" type="email" placeholder="your@email.com" required />
+        <Input id="email" name="email" type="email" placeholder="your@email.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
       </div>
       <div>
         <Label htmlFor="message">Message</Label>
-        <Textarea id="message" name="message" placeholder="Your message..." required rows={5} />
+        <Textarea id="message" name="message" placeholder="Your message..." required rows={5} value={message} onChange={(e) => setMessage(e.target.value)} />
       </div>
       <SubmitButton isSubmitting={isSubmitting} />
     </form>
