@@ -156,7 +156,7 @@ const Fireworks: React.FC = () => {
         }
 
         function createParticles(x: number, y: number, hue: number) {
-            let particleCount = 30;
+            let particleCount = 50;
             while (particleCount--) {
                 particles.push(new Particle(x, y, hue));
             }
@@ -184,12 +184,12 @@ const Fireworks: React.FC = () => {
         }
 
         const launchFirework = () => {
-            if (fireworks.length < 10) { // Limit number of fireworks on screen
+            if (fireworks.length < 20) { // Limit number of fireworks on screen
                  fireworks.push(new Firework(width / 2, height, random(0, width), random(0, height / 2)));
             }
         };
 
-        const intervalId = setInterval(launchFirework, 2000);
+        const intervalId = setInterval(launchFirework, 1000);
         
         const handleResize = () => {
           width = canvas.width = window.innerWidth;
