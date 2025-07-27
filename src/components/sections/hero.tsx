@@ -33,7 +33,8 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center floating" style={{animationDelay: '1s'}}>
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
           <Button asChild size="lg" className="group nebula-glow">
             <Link href="#projects">
               View My Work
