@@ -61,11 +61,11 @@ export function ContactForm() {
     <form ref={formRef} onSubmit={sendEmail} className="space-y-4">
       <div>
         <Label htmlFor="name">Name</Label>
-        <Input id="name" name="from_name" placeholder="Your Name" required />
+        <Input id="name" name="name" placeholder="Your Name" required />
       </div>
       <div>
         <Label htmlFor="email">Email</Label>
-        <Input id="email" name="user_email" type="email" placeholder="your@email.com" required />
+        <Input id="email" name="email" type="email" placeholder="your@email.com" required />
       </div>
       <div>
         <Label htmlFor="message">Message</Label>
