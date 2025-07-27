@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function About() {
   return (
-    <div className="container mx-auto grid items-center justify-center gap-12 px-4 md:px-6 lg:grid-cols-2 lg:gap-20 py-12">
+    <div className="container mx-auto grid items-center justify-center gap-12 px-4 md:px-6 lg:grid-cols-2 lg:gap-20 py-8">
       <div className="space-y-4">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">About Me</h2>
         <p className="text-muted-foreground md:text-lg/relaxed">
@@ -14,7 +14,7 @@ export default function About() {
           <Card className="w-full max-w-sm border-2 border-primary/20 hover:border-primary/50 transition-all duration-300 transform-style-3d hover:rotate-y-10 hover:shadow-2xl hover:shadow-primary/20">
               <CardHeader className="items-center pt-8">
                   <Avatar className="w-32 h-32 border-4 border-primary">
-                      <AvatarImage src="/vinish.jpg" alt="Vinish V" />
+                      <AvatarImage src="https://firebasestorage.googleapis.com/v0/b/app-pro-25656.appspot.com/o/i_20240726_014639.png?alt=media&token=e1104e17-74c0-48e0-a92c-0ee9b5a8e0f5" alt="Vinish V" />
                       <AvatarFallback>VV</AvatarFallback>
                   </Avatar>
               </CardHeader>
