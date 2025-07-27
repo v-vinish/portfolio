@@ -52,6 +52,7 @@ const projects: Project[] = [
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isFlipped, setIsFlipped] = useState(false);
 
   return (
     <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
@@ -62,35 +63,52 @@ export default function Projects() {
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            whileHover={{ scale: 1.05, rotateY: -10 }}
+            whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
+            onMouseEnter={() => setIsFlipped(true)}
+            onMouseLeave={() => setIsFlipped(false)}
           >
-            <Card className="flex flex-col overflow-hidden group transition-all duration-300 h-full hover:shadow-lg hover:shadow-primary/20 transform-style-3d">
-              <CardHeader className="p-0">
-                <div className="overflow-hidden rounded-t-lg">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={600}
-                    height={400}
-                    className="object-cover w-full h-48 transition-transform duration-300 group-hover:scale-105"
-                    data-ai-hint={project.imageHint}
-                  />
-                </div>
-                 <div className="p-6">
-                  <CardTitle>{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
-                </div>
-              </CardHeader>
-              <CardContent className="flex-grow flex flex-col justify-end p-6 pt-0">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
-                </div>
-                <Button onClick={() => setSelectedProject(project)} className="w-full mt-auto">
-                  View Details
-                </Button>
-              </CardContent>
-            </Card>
+            <motion.div 
+              className="transform-style-3d w-full h-full"
+              animate={{ rotateY: isFlipped ? 180 : 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <Card className="flex flex-col overflow-hidden group transition-all duration-300 h-full hover:shadow-lg hover:shadow-primary/20 transform-style-3d backface-hidden">
+                <CardHeader className="p-0">
+                  <div className="overflow-hidden rounded-t-lg relative group-hover:holographic-shine-hover">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={600}
+                      height={400}
+                      className="object-cover w-full h-48 transition-transform duration-300 group-hover:scale-105"
+                      data-ai-hint={project.imageHint}
+                    />
+                    <div className="holographic-shine"></div>
+                  </div>
+                   <div className="p-6">
+                    <CardTitle>{project.title}</CardTitle>
+                    <CardDescription>{project.description}</CardDescription>
+                  </div>
+                </CardHeader>
+                <CardContent className="flex-grow flex flex-col justify-end p-6 pt-0">
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
+                  </div>
+                  <Button onClick={() => setSelectedProject(project)} className="w-full mt-auto nebula-glow">
+                    View Details
+                  </Button>
+                </CardContent>
+              </Card>
+               <Card className="absolute top-0 left-0 w-full h-full flex flex-col overflow-hidden group transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 transform-style-3d backface-hidden [transform:rotateY(180deg)]">
+                <CardHeader className="p-6">
+                    <CardTitle>{project.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow flex flex-col justify-center items-center p-6 pt-0 text-center">
+                  <p>{project.longDescription}</p>
+                </CardContent>
+              </Card>
+            </motion.div>
           </motion.div>
         ))}
       </div>
