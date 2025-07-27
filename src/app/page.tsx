@@ -6,6 +6,7 @@ import Experience from '@/components/sections/experience';
 import Projects from '@/components/sections/projects';
 import Skills from '@/components/sections/skills';
 import AnimatedSection from '@/components/animated-section';
+import Contact from '@/components/sections/contact';
 
 export default function Home() {
   return (
@@ -24,6 +25,9 @@ export default function Home() {
         </AnimatedSection>
         <AnimatedSection id="skills" className="w-full floating" style={{animationDelay: '3s'}}>
           <Skills />
+        </AnimatedSection>
+        <AnimatedSection id="contact" className="w-full floating" style={{animationDelay: '4s'}}>
+          <Contact />
         </AnimatedSection>
       </main>
       <Footer />
