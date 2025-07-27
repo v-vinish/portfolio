@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog';
 import { Github, ExternalLink } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
@@ -51,8 +50,7 @@ const projects: Project[] = [
 ];
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [isFlipped, setIsFlipped] = useState(false);
+  const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
 
   return (
     <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
@@ -61,19 +59,19 @@ export default function Projects() {
       </h2>
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 perspective">
         {projects.map((project, index) => (
-          <motion.div
+          <div
             key={index}
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            onMouseEnter={() => setIsFlipped(true)}
-            onMouseLeave={() => setIsFlipped(false)}
+            className="w-full h-[420px] perspective"
+            onMouseEnter={() => setFlippedIndex(index)}
+            onMouseLeave={() => setFlippedIndex(null)}
           >
-            <motion.div 
-              className="transform-style-3d w-full h-full"
-              animate={{ rotateY: isFlipped ? 180 : 0 }}
-              transition={{ duration: 0.6 }}
+            <motion.div
+              className="relative w-full h-full transform-style-3d"
+              animate={{ rotateY: flippedIndex === index ? 180 : 0 }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
             >
-              <Card className="flex flex-col overflow-hidden group transition-all duration-300 h-full hover:shadow-lg hover:shadow-primary/20 transform-style-3d backface-hidden">
+              {/* Front of the card */}
+              <Card className="absolute top-0 left-0 w-full h-full flex flex-col overflow-hidden group transition-all duration-300 backface-hidden">
                 <CardHeader className="p-0">
                   <div className="overflow-hidden rounded-t-lg relative group-hover:holographic-shine-hover">
                     <Image
@@ -91,71 +89,43 @@ export default function Projects() {
                     <CardDescription>{project.description}</CardDescription>
                   </div>
                 </CardHeader>
-                <CardContent className="flex-grow flex flex-col justify-end p-6 pt-0">
-                  <div className="flex flex-wrap gap-2 mb-4">
+                <CardContent className="flex-grow flex flex-col justify-between p-6 pt-0">
+                  <div className="flex flex-wrap gap-2">
                     {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
                   </div>
-                  <Button onClick={() => setSelectedProject(project)} className="w-full mt-auto nebula-glow">
-                    View Details
-                  </Button>
+                  <p className="text-sm text-primary mt-4 font-semibold">Hover to learn more</p>
                 </CardContent>
               </Card>
-               <Card className="absolute top-0 left-0 w-full h-full flex flex-col overflow-hidden group transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 transform-style-3d backface-hidden [transform:rotateY(180deg)]">
-                <CardHeader className="p-6">
-                    <CardTitle>{project.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow flex flex-col justify-center items-center p-6 pt-0 text-center">
-                  <p>{project.longDescription}</p>
-                </CardContent>
+
+              {/* Back of the card */}
+              <Card className="absolute top-0 left-0 w-full h-full flex flex-col justify-between overflow-hidden group transition-all duration-300 backface-hidden [transform:rotateY(180deg)] p-6">
+                <div>
+                  <CardTitle>{project.title}</CardTitle>
+                  <p className="text-muted-foreground mt-4">{project.longDescription}</p>
+                </div>
+                <div className="flex justify-end gap-2 w-full mt-4">
+                  {project.repoUrl && (
+                    <Button asChild variant="outline" size="sm">
+                      <Link href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+                        <Github className="mr-2 h-4 w-4" />
+                        GitHub
+                      </Link>
+                    </Button>
+                  )}
+                  {project.liveUrl && (
+                    <Button asChild size="sm">
+                      <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        Live Demo
+                      </Link>
+                    </Button>
+                  )}
+                </div>
               </Card>
             </motion.div>
-          </motion.div>
+          </div>
         ))}
       </div>
-
-      {selectedProject && (
-        <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-          <DialogContent className="sm:max-w-[650px]">
-            <DialogHeader>
-              <div className="overflow-hidden rounded-lg mb-4">
-                <Image
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  width={600}
-                  height={400}
-                  className="object-cover w-full h-auto max-h-64"
-                  data-ai-hint={selectedProject.imageHint}
-                />
-              </div>
-              <DialogTitle className="text-2xl">{selectedProject.title}</DialogTitle>
-              <div className="flex flex-wrap gap-2 pt-2">
-                {selectedProject.tags.map(tag => <Badge key={tag} variant="outline">{tag}</Badge>)}
-              </div>
-              <DialogDescription className="pt-4">{selectedProject.longDescription}</DialogDescription>
-            </DialogHeader>
-            <DialogFooter className="mt-4">
-              <div className="flex justify-end gap-2 w-full">
-                {selectedProject.repoUrl && (
-                  <Button asChild variant="outline">
-                    <Link href={selectedProject.repoUrl} target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-2 h-4 w-4" />
-                      GitHub
-                    </Link>
-                  </Button>
-                )}
-                {selectedProject.liveUrl && (
-                  <Button asChild>
-                    <Link href={selectedProject.liveUrl} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      Live Demo
-                    </Link>
-                  </Button>
-                )}
-              </div>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
-      )}
     </div>
   );
 }
