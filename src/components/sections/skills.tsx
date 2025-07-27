@@ -29,33 +29,31 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="w-full">
-      <div className="container mx-auto px-4 md:px-6">
-        <h2 className="text-3xl font-bold tracking-tighter text-center sm:text-4xl md:text-5xl font-headline mb-12">
-          My Skills
-        </h2>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {skillCategories.map((category) => (
-            <Card key={category.title} className="hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-2">
-              <CardHeader className="flex flex-row items-center gap-4 pb-4">
-                {category.icon}
-                <CardTitle className="text-2xl">{category.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                {category.data.map(skill => (
-                  <div key={skill.name}>
-                    <div className="flex justify-between mb-2">
-                      <span className="text-base font-medium text-foreground">{skill.name}</span>
-                      <span className="text-sm font-medium text-muted-foreground">{skill.level}%</span>
-                    </div>
-                    <Progress value={skill.level} aria-label={`${skill.name} proficiency`} />
+    <div className="container mx-auto px-4 md:px-6 py-20 md:py-32">
+      <h2 className="text-3xl font-bold tracking-tighter text-center sm:text-4xl md:text-5xl font-headline mb-12">
+        My Skills
+      </h2>
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {skillCategories.map((category) => (
+          <Card key={category.title} className="hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-2">
+            <CardHeader className="flex flex-row items-center gap-4 pb-4">
+              {category.icon}
+              <CardTitle className="text-2xl">{category.title}</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              {category.data.map(skill => (
+                <div key={skill.name}>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-base font-medium text-foreground">{skill.name}</span>
+                    <span className="text-sm font-medium text-muted-foreground">{skill.level}%</span>
                   </div>
-                ))}
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                  <Progress value={skill.level} aria-label={`${skill.name} proficiency`} />
+                </div>
+              ))}
+            </CardContent>
+          </Card>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }

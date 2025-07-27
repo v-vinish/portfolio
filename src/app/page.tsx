@@ -6,7 +6,7 @@ import Experience from '@/components/sections/experience';
 import Projects from '@/components/sections/projects';
 import Skills from '@/components/sections/skills';
 import Contact from '@/components/sections/contact';
-import { Separator } from '@/components/ui/separator';
+import AnimatedSection from '@/components/animated-section';
 
 export default function Home() {
   return (
@@ -14,11 +14,21 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
-        <About />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Contact />
+        <AnimatedSection id="about" className="w-full bg-background">
+          <About />
+        </AnimatedSection>
+        <AnimatedSection id="experience" className="w-full bg-card/50">
+          <Experience />
+        </AnimatedSection>
+        <AnimatedSection id="projects" className="w-full bg-background">
+          <Projects />
+        </AnimatedSection>
+        <AnimatedSection id="skills" className="w-full bg-card/50">
+          <Skills />
+        </AnimatedSection>
+        <AnimatedSection id="contact" className="w-full bg-background">
+          <Contact />
+        </AnimatedSection>
       </main>
       <Footer />
     </div>

@@ -20,29 +20,27 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="w-full bg-card/50">
-      <div className="container mx-auto px-4 md:px-6">
-        <h2 className="text-3xl font-bold tracking-tighter text-center sm:text-4xl md:text-5xl font-headline mb-12">
-          Experience & Education
-        </h2>
-        <div className="relative max-w-4xl mx-auto">
-          <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-border"></div>
-          {experiences.map((exp, index) => (
-            <div key={index} className="relative mb-12">
-              <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background"></div>
-              <Card className={`w-[calc(50%-2rem)] p-6 relative ${index % 2 === 0 ? 'mr-auto' : 'ml-auto'}`}>
-                  <h3 className="text-2xl font-bold text-primary">{exp.role}</h3>
-                  <p className="font-semibold text-lg">{exp.company}</p>
-                  <p className="text-sm text-muted-foreground mb-4">{exp.period}</p>
-                   <p className="text-muted-foreground mb-4">{exp.description}</p>
-                   <div className="flex flex-wrap gap-2">
-                      {exp.skills.map(skill => <Badge key={skill} variant="secondary">{skill}</Badge>)}
-                   </div>
-              </Card>
-            </div>
-          ))}
-        </div>
+    <div className="container mx-auto px-4 md:px-6 py-20 md:py-32">
+      <h2 className="text-3xl font-bold tracking-tighter text-center sm:text-4xl md:text-5xl font-headline mb-12">
+        Experience & Education
+      </h2>
+      <div className="relative max-w-4xl mx-auto">
+        <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-border"></div>
+        {experiences.map((exp, index) => (
+          <div key={index} className="relative mb-12">
+            <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background"></div>
+            <Card className={`w-[calc(50%-2rem)] p-6 relative ${index % 2 === 0 ? 'mr-auto' : 'ml-auto'}`}>
+                <h3 className="text-2xl font-bold text-primary">{exp.role}</h3>
+                <p className="font-semibold text-lg">{exp.company}</p>
+                <p className="text-sm text-muted-foreground mb-4">{exp.period}</p>
+                 <p className="text-muted-foreground mb-4">{exp.description}</p>
+                 <div className="flex flex-wrap gap-2">
+                    {exp.skills.map(skill => <Badge key={skill} variant="secondary">{skill}</Badge>)}
+                 </div>
+            </Card>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }

@@ -53,41 +53,39 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="w-full bg-card/50">
-      <div className="container mx-auto px-4 md:px-6">
-        <h2 className="text-3xl font-bold tracking-tighter text-center sm:text-4xl md:text-5xl font-headline mb-12">
-          Featured Projects
-        </h2>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <Card key={index} className="flex flex-col overflow-hidden group transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-2">
-              <CardHeader className="p-0">
-                <div className="overflow-hidden rounded-t-lg">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={600}
-                    height={400}
-                    className="object-cover w-full h-48 transition-transform duration-300 group-hover:scale-105"
-                    data-ai-hint={project.imageHint}
-                  />
-                </div>
-                 <div className="p-6">
-                  <CardTitle>{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
-                </div>
-              </CardHeader>
-              <CardContent className="flex-grow flex flex-col justify-end p-6 pt-0">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
-                </div>
-                <Button onClick={() => setSelectedProject(project)} className="w-full mt-auto">
-                  View Details
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+    <div className="container mx-auto px-4 md:px-6 py-20 md:py-32">
+      <h2 className="text-3xl font-bold tracking-tighter text-center sm:text-4xl md:text-5xl font-headline mb-12">
+        Featured Projects
+      </h2>
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project, index) => (
+          <Card key={index} className="flex flex-col overflow-hidden group transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-2">
+            <CardHeader className="p-0">
+              <div className="overflow-hidden rounded-t-lg">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={600}
+                  height={400}
+                  className="object-cover w-full h-48 transition-transform duration-300 group-hover:scale-105"
+                  data-ai-hint={project.imageHint}
+                />
+              </div>
+               <div className="p-6">
+                <CardTitle>{project.title}</CardTitle>
+                <CardDescription>{project.description}</CardDescription>
+              </div>
+            </CardHeader>
+            <CardContent className="flex-grow flex flex-col justify-end p-6 pt-0">
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
+              </div>
+              <Button onClick={() => setSelectedProject(project)} className="w-full mt-auto">
+                View Details
+              </Button>
+            </CardContent>
+          </Card>
+        ))}
       </div>
 
       {selectedProject && (
@@ -133,6 +131,6 @@ export default function Projects() {
           </DialogContent>
         </Dialog>
       )}
-    </section>
+    </div>
   );
 }
