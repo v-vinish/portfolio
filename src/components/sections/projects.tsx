@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Github, ExternalLink } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 type Project = {
   title: string;
@@ -51,19 +52,32 @@ const projects: Project[] = [
 
 export default function Projects() {
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
+  const isMobile = useIsMobile();
+
+  const handleInteraction = (index: number) => {
+    if (!isMobile) {
+      setFlippedIndex(index);
+    }
+  }
+  const handleMobileClick = (index: number) => {
+    if (isMobile) {
+        setFlippedIndex(flippedIndex === index ? null : index);
+    }
+  }
 
   return (
     <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
       <h2 className="text-3xl font-bold tracking-tighter text-center sm:text-4xl md:text-5xl font-headline mb-12">
         Featured Projects
       </h2>
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 perspective">
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
           <div
             key={index}
-            className="w-full h-[420px] perspective"
-            onMouseEnter={() => setFlippedIndex(index)}
-            onMouseLeave={() => setFlippedIndex(null)}
+            className="w-full h-[450px] md:h-[420px] perspective"
+            onMouseEnter={() => handleInteraction(index)}
+            onMouseLeave={() => handleInteraction(null)}
+            onClick={() => handleMobileClick(index)}
           >
             <motion.div
               className="relative w-full h-full transform-style-3d"
@@ -93,7 +107,7 @@ export default function Projects() {
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
                   </div>
-                  <p className="text-sm text-primary mt-4 font-semibold">Hover to learn more</p>
+                  <p className="text-sm text-primary mt-4 font-semibold">{isMobile ? "Tap to learn more" : "Hover to learn more"}</p>
                 </CardContent>
               </Card>
 

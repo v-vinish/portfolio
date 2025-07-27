@@ -28,16 +28,17 @@ export default function Experience() {
         Experience & Education
       </h2>
       <div className="relative max-w-4xl mx-auto">
-        <div className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-border"></div>
+        <div className="absolute left-4 md:left-1/2 -translate-x-1/2 h-full w-0.5 bg-border"></div>
         {experiences.map((exp, index) => (
-          <div key={index} className="relative mb-12">
-            <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background"></div>
+          <div key={index} className="relative pl-10 md:pl-0 mb-12 md:grid md:grid-cols-2 md:gap-8">
+            <div className="absolute left-4 md:left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background md:top-4"></div>
             <motion.div
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              className={`md:col-start-${index % 2 === 0 ? 1 : 2} md:row-start-1`}
             >
-              <Card className={`w-[calc(50%-2rem)] p-6 relative ${index % 2 === 0 ? 'mr-auto' : 'ml-auto'}`}>
-                  <h3 className="text-2xl font-bold text-primary">{exp.role}</h3>
+              <Card className={`p-6 relative ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'} w-full`}>
+                  <h3 className="text-xl md:text-2xl font-bold text-primary">{exp.role}</h3>
                   <p className="font-semibold text-lg">{exp.company}</p>
                   <p className="text-sm text-muted-foreground mb-4">{exp.period}</p>
                    <p className="text-muted-foreground mb-4">{exp.description}</p>

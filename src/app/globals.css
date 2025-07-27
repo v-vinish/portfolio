@@ -62,7 +62,7 @@
     -moz-osx-font-smoothing: grayscale;
   }
   section {
-    @apply py-2 md:py-4;
+    @apply py-8 md:py-16;
   }
 }
 
@@ -210,5 +210,12 @@
 }
 
 .floating {
-	animation: float 6s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Disable floating on mobile */
+@media (max-width: 768px) {
+  .floating {
+    animation: none;
+  }
 }
