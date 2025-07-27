@@ -48,7 +48,7 @@ export function ContactForm() {
 
     // Service ID, Template ID, Public Key from user
     const serviceID = "service_q0ffpah";
-    const templateID = "template_48m2slc";
+    const templateID = "cc784su";
     const publicKey = "ifoS_q1tHPyT4brhY";
 
     console.log("Sending with data:", templateParams);
