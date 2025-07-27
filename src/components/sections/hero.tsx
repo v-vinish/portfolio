@@ -97,6 +97,11 @@ export default function Hero() {
               <MoveRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
+          <Button asChild size="lg" variant="outline">
+            <Link href="#contact">
+              Contact Me
+            </Link>
+          </Button>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
