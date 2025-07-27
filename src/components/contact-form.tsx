@@ -61,7 +61,7 @@ export function ContactForm() {
     <form ref={formRef} onSubmit={sendEmail} className="space-y-4">
       <div>
         <Label htmlFor="name">Name</Label>
-        <Input id="name" name="user_name" placeholder="Your Name" required />
+        <Input id="name" name="from_name" placeholder="Your Name" required />
       </div>
       <div>
         <Label htmlFor="email">Email</Label>
