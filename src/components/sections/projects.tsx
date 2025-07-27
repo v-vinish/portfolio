@@ -126,14 +126,6 @@ export default function Projects() {
                       </Link>
                     </Button>
                   )}
-                  {project.liveUrl && (
-                    <Button asChild size="sm">
-                      <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        Live Demo
-                      </Link>
-                    </Button>
-                  )}
                 </div>
               </Card>
             </motion.div>
