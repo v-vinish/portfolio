@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'VinishV Pro | Professional Portfolio',
-  description: 'A professional portfolio for VinishV showcasing skills, experience, and projects.',
+  title: 'Vinish V | Professional Portfolio',
+  description: 'Electronics and Communication Engineering student with practical experience in computer vision and full-stack web development.',
 };
 
 export default function RootLayout({

@@ -30,7 +30,7 @@ export default function Header() {
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
           <Code2 className="h-6 w-6 text-primary" />
-          <span>VinishV Pro</span>
+          <span>Vinish V</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           {navLinks.map((link) => (
@@ -51,7 +51,7 @@ export default function Header() {
               <div className="grid gap-4 py-6">
                 <Link href="/" className="flex items-center gap-2 font-bold text-lg mb-4">
                   <Code2 className="h-6 w-6 text-primary" />
-                  <span>VinishV Pro</span>
+                  <span>Vinish V</span>
                 </Link>
                 {navLinks.map((link) => (
                   <SheetClose key={link.href} asChild>

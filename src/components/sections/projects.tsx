@@ -22,33 +22,20 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "E-commerce Platform",
-    description: "A modern, full-featured e-commerce site with a custom CMS.",
-    longDescription: "This project is a comprehensive e-commerce platform built from the ground up using Next.js for the frontend and Strapi as a headless CMS. It features product catalogs, user authentication, a shopping cart, and Stripe integration for payments. The architecture is designed to be scalable and performant, providing a seamless shopping experience.",
+    title: "Sign Language Translator App",
+    description: "Real-time ISL to text translation in all regional languages.",
+    longDescription: "Real-time ISL to text translation in all regional languages using MediaPipe and TensorFlow Lite. Built responsive front-end interfaces using React and Tailwind, Integrated backend APIs to fetch and display dynamic data.",
     image: "https://placehold.co/600x400.png",
-    imageHint: "online shopping",
-    tags: ["Next.js", "React", "Stripe", "Tailwind CSS", "CMS"],
-    liveUrl: "#",
-    repoUrl: "#"
+    imageHint: "sign language",
+    tags: ["MediaPipe", "TensorFlow Lite", "React", "Tailwind"],
   },
   {
-    title: "Task Management App",
-    description: "A collaborative task manager with real-time updates.",
-    longDescription: "A Kanban-style task management application designed for team collaboration. It's built with the T3 stack (Next.js, TypeScript, tRPC, Prisma, NextAuth.js) and features real-time drag-and-drop functionality using WebSockets. Users can create boards, lists, and cards to organize their workflows efficiently.",
+    title: "Gesture-Controlled Racing Game",
+    description: "Control gameplay in Need for Speed using a webcam.",
+    longDescription: "Developed a real-time hand gesture recognition system to control gameplay in Need for Speed using a webcam using OpenCV, MediaPipe, Python.",
     image: "https://placehold.co/600x400.png",
-    imageHint: "project management",
-    tags: ["T3 Stack", "tRPC", "Prisma", "WebSockets", "TypeScript"],
-    repoUrl: "#"
-  },
-  {
-    title: "Portfolio Website",
-    description: "This very portfolio, designed to be clean and responsive.",
-    longDescription: "A personal portfolio website built with Next.js and shadcn/ui to showcase my skills and projects. It is designed with a mobile-first approach, ensuring a great user experience on all devices. The design is minimalist and modern, with a focus on readability and performance.",
-    image: "https://placehold.co/600x400.png",
-    imageHint: "web design",
-    tags: ["Next.js", "shadcn/ui", "Tailwind CSS", "React"],
-    liveUrl: "#",
-    repoUrl: "#"
+    imageHint: "racing game",
+    tags: ["OpenCV", "MediaPipe", "Python", "Gesture Recognition"],
   },
 ];
 

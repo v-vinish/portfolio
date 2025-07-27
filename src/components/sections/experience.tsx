@@ -3,25 +3,18 @@ import { Badge } from "@/components/ui/badge";
 
 const experiences = [
   {
-    role: "Senior Software Engineer",
-    company: "Innovate Inc.",
-    period: "Jan 2021 - Present",
-    description: "Led the development of a scalable microservices architecture for a new e-commerce platform. Mentored junior developers and championed best practices in code reviews and pair programming. Improved application performance by 30% through strategic refactoring and query optimization.",
-    skills: ["React", "Node.js", "Kubernetes", "AWS", "TypeScript"]
+    role: "Market Automation Technology and Data Analytics",
+    company: "Customer Centria",
+    period: "Jan 2024 - Jan 2024",
+    description: "Worked successfully with diverse group of coworkers to accomplish goals and address issues related to our products and services.",
+    skills: ["Teamwork", "Problem Solving"]
   },
   {
-    role: "Software Engineer",
-    company: "Tech Solutions",
-    period: "Jun 2018 - Dec 2020",
-    description: "Developed and maintained features for a large-scale SaaS application. Collaborated with product managers and designers to translate requirements into technical specifications. Implemented a CI/CD pipeline which reduced deployment time by 50%.",
-    skills: ["JavaScript", "Vue.js", "Express", "MongoDB", "Docker"]
-  },
-  {
-    role: "Junior Developer",
-    company: "Creative Coders",
-    period: "Jul 2017 - May 2018",
-    description: "Assisted in the development of client websites using HTML, CSS, and JavaScript. Gained foundational experience in version control with Git and agile development methodologies.",
-    skills: ["HTML", "CSS", "JavaScript", "jQuery", "Git"]
+    role: "Education",
+    company: "KGISL Institute of Technology, Coimbatore",
+    period: "Expected 05/2027",
+    description: "Pursuing a degree in Electronics and communication. Current CGPA: 8",
+    skills: ["Electronics", "Communication"]
   }
 ];
 
@@ -30,7 +23,7 @@ export default function Experience() {
     <section id="experience" className="w-full py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="text-3xl font-bold tracking-tighter text-center sm:text-4xl md:text-5xl font-headline mb-12">
-          Professional Experience
+          Experience & Education
         </h2>
         <div className="grid gap-8 max-w-4xl mx-auto">
           {experiences.map((exp, index) => (

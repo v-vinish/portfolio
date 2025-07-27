@@ -1,36 +1,23 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { Code, Database, Server, Component } from 'lucide-react';
+import { Code, Component, Brain, Handshake } from 'lucide-react';
 
 const skills = {
-  frontend: [
-    { name: 'React & Next.js', level: 95 },
-    { name: 'TypeScript', level: 90 },
-    { name: 'Tailwind CSS', level: 95 },
-    { name: 'HTML5 & CSS3', level: 98 },
+  programming: [
+    { name: 'Python', level: 90 },
+    { name: 'HTML, CSS, JavaScript', level: 85 },
+    { name: 'Git', level: 80 },
   ],
-  backend: [
-    { name: 'Node.js & Express', level: 90 },
-    { name: 'Python & Django', level: 75 },
-    { name: 'REST & GraphQL APIs', level: 85 },
-  ],
-  database: [
-    { name: 'PostgreSQL', level: 85 },
-    { name: 'MongoDB', level: 80 },
-    { name: 'Prisma', level: 90 },
-  ],
-  devops: [
-    { name: 'Docker', level: 80 },
-    { name: 'CI/CD (GitHub Actions)', level: 85 },
-    { name: 'AWS', level: 70 },
+  softskills: [
+    { name: 'Analytical thinking', level: 95 },
+    { name: 'Effective communication', level: 90 },
+    { name: 'Collaborative teamwork', level: 95 },
   ],
 };
 
 const skillCategories = [
-    { title: "Frontend", icon: <Component className="h-8 w-8 text-primary" />, data: skills.frontend },
-    { title: "Backend", icon: <Server className="h-8 w-8 text-primary" />, data: skills.backend },
-    { title: "Database", icon: <Database className="h-8 w-8 text-primary" />, data: skills.database },
-    { title: "DevOps & Tools", icon: <Code className="h-8 w-8 text-primary" />, data: skills.devops }
+    { title: "Technical Skills", icon: <Code className="h-8 w-8 text-primary" />, data: skills.programming },
+    { title: "Soft Skills", icon: <Handshake className="h-8 w-8 text-primary" />, data: skills.softskills }
 ]
 
 export default function Skills() {

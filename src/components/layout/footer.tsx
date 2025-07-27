@@ -10,11 +10,11 @@ export default function Footer() {
         <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
           <Link href="/" className="flex items-center gap-2 font-bold text-lg">
             <Code2 className="h-6 w-6 text-primary" />
-            <p className="text-sm">VinishV Pro</p>
+            <p className="text-sm">Vinish V</p>
           </Link>
         </div>
         <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-          &copy; {currentYear} VinishV. All rights reserved.
+          &copy; {currentYear} Vinish V. All rights reserved.
         </p>
       </div>
     </footer>

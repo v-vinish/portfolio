@@ -18,17 +18,17 @@ export default function Contact() {
             </p>
             <div className="flex gap-4">
               <Button asChild variant="outline" size="icon">
-                <Link href="mailto:contact@vinishv.pro" aria-label="Email">
+                <Link href="mailto:viniv6687@gmail.com" aria-label="Email">
                   <Mail className="h-5 w-5" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="icon">
-                <Link href="#" target="_blank" aria-label="LinkedIn">
+                <Link href="https://www.linkedin.com/in/vinish-v-80bb1020b" target="_blank" aria-label="LinkedIn">
                   <Linkedin className="h-5 w-5" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="icon">
-                <Link href="#" target="_blank" aria-label="GitHub">
+                <Link href="https://github.com/vinish-v" target="_blank" aria-label="GitHub">
                   <Github className="h-5 w-5" />
                 </Link>
               </Button>
