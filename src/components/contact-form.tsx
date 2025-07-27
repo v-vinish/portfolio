@@ -46,13 +46,13 @@ export function ContactForm() {
       message: message,
     };
 
+    // Service ID, Template ID, Public Key from user
+    const serviceID = "service_q0ffpah";
+    const templateID = "template_48m2slc";
+    const publicKey = "ifoS_q1tHPyT4brhY";
+
     emailjs
-      .send(
-        "service_q0ffpah",
-        "template_48m2slc",
-        templateParams,
-        "ifoS_q1tHPyT4brhY"
-      )
+      .send(serviceID, templateID, templateParams, publicKey)
       .then(
         () => {
           toast({
