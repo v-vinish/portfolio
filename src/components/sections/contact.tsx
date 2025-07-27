@@ -10,10 +10,10 @@ export default function Contact() {
       <div className="grid gap-12 lg:grid-cols-5">
         <div className="lg:col-span-2 space-y-4">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
-            Get In Touch
+            Contact Me
           </h2>
           <p className="text-muted-foreground">
-            Have a project in mind, a question, or just want to say hi? I'd love to hear from you. Fill out the form or reach out via email or social media.
+            I'd love to hear from you. Fill out the form or reach out via email or social media.
           </p>
           <div className="flex gap-4">
             <Button asChild variant="outline" size="icon">
