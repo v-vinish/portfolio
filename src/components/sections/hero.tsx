@@ -48,7 +48,7 @@ export default function Hero() {
 
   return (
     <section className="relative container mx-auto flex flex-col items-center justify-center text-center py-2 md:py-4 px-4 md:px-6 h-[80vh] overflow-hidden">
-      <motion.div style={{ y }} className="absolute inset-0 bg-gradient-to-b from-background via-purple-900/10 to-background z-0"></motion.div>
+      <motion.div style={{ y }} className="absolute inset-0 animated-nebula z-0"></motion.div>
       <div className="space-y-6 max-w-3xl z-10">
         <motion.h1 
           variants={letterContainerVariants}

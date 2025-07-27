@@ -130,6 +130,18 @@
     opacity: 1;
     animation: cosmic-spark-pulse 1.5s infinite ease-out;
   }
+
+  .animated-nebula {
+    background: linear-gradient(270deg, #020024, #090979, #00d4ff, #4a00e0, #8e2de2);
+    background-size: 400% 400%;
+    animation: gradientMove 20s ease infinite;
+  }
+}
+
+@keyframes gradientMove {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 
 @keyframes cosmic-spark-pulse {
