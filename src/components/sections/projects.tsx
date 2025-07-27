@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog';
@@ -53,38 +54,44 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
+    <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
       <h2 className="text-3xl font-bold tracking-tighter text-center sm:text-4xl md:text-5xl font-headline mb-12">
         Featured Projects
       </h2>
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 perspective">
         {projects.map((project, index) => (
-          <Card key={index} className="flex flex-col overflow-hidden group transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 transform-style-3d hover:rotate-y-[-10deg] hover:-translate-y-2">
-            <CardHeader className="p-0">
-              <div className="overflow-hidden rounded-t-lg">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={600}
-                  height={400}
-                  className="object-cover w-full h-48 transition-transform duration-300 group-hover:scale-105"
-                  data-ai-hint={project.imageHint}
-                />
-              </div>
-               <div className="p-6">
-                <CardTitle>{project.title}</CardTitle>
-                <CardDescription>{project.description}</CardDescription>
-              </div>
-            </CardHeader>
-            <CardContent className="flex-grow flex flex-col justify-end p-6 pt-0">
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
-              </div>
-              <Button onClick={() => setSelectedProject(project)} className="w-full mt-auto">
-                View Details
-              </Button>
-            </CardContent>
-          </Card>
+          <motion.div
+            key={index}
+            whileHover={{ scale: 1.05, rotateY: -10 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <Card className="flex flex-col overflow-hidden group transition-all duration-300 h-full hover:shadow-lg hover:shadow-primary/20 transform-style-3d">
+              <CardHeader className="p-0">
+                <div className="overflow-hidden rounded-t-lg">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={600}
+                    height={400}
+                    className="object-cover w-full h-48 transition-transform duration-300 group-hover:scale-105"
+                    data-ai-hint={project.imageHint}
+                  />
+                </div>
+                 <div className="p-6">
+                  <CardTitle>{project.title}</CardTitle>
+                  <CardDescription>{project.description}</CardDescription>
+                </div>
+              </CardHeader>
+              <CardContent className="flex-grow flex flex-col justify-end p-6 pt-0">
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
+                </div>
+                <Button onClick={() => setSelectedProject(project)} className="w-full mt-auto">
+                  View Details
+                </Button>
+              </CardContent>
+            </Card>
+          </motion.div>
         ))}
       </div>
 

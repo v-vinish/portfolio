@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Code, Brain, Handshake, Cpu } from 'lucide-react';
@@ -29,29 +32,35 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
+    <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
       <h2 className="text-3xl font-bold tracking-tighter text-center sm:text-4xl md:text-5xl font-headline mb-12">
         My Skills
       </h2>
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 perspective">
         {skillCategories.map((category, index) => (
-          <Card key={category.title} className="hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 transform-style-3d hover:-translate-y-2" style={{ transform: `rotateY(${(index - 1) * 10}deg)` }}>
-            <CardHeader className="flex flex-row items-center gap-4 pb-4">
-              {category.icon}
-              <CardTitle className="text-2xl">{category.title}</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              {category.data.map(skill => (
-                <div key={skill.name}>
-                  <div className="flex justify-between mb-2">
-                    <span className="text-base font-medium text-foreground">{skill.name}</span>
-                    <span className="text-sm font-medium text-muted-foreground">{skill.level}%</span>
+          <motion.div
+            key={category.title}
+            whileHover={{ scale: 1.05, y: -10 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <Card className="hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 transform-style-3d h-full">
+              <CardHeader className="flex flex-row items-center gap-4 pb-4">
+                {category.icon}
+                <CardTitle className="text-2xl">{category.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                {category.data.map(skill => (
+                  <div key={skill.name}>
+                    <div className="flex justify-between mb-2">
+                      <span className="text-base font-medium text-foreground">{skill.name}</span>
+                      <span className="text-sm font-medium text-muted-foreground">{skill.level}%</span>
+                    </div>
+                    <Progress value={skill.level} aria-label={`${skill.name} proficiency`} />
                   </div>
-                  <Progress value={skill.level} aria-label={`${skill.name} proficiency`} />
-                </div>
-              ))}
-            </CardContent>
-          </Card>
+                ))}
+              </CardContent>
+            </Card>
+          </motion.div>
         ))}
       </div>
     </div>
