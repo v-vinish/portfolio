@@ -48,7 +48,6 @@ export default function Hero() {
 
   return (
     <section className="relative container mx-auto flex flex-col items-center justify-center text-center py-2 md:py-4 px-4 md:px-6 h-[80vh] overflow-hidden">
-      <motion.div style={{ y }} className="absolute inset-0 animated-nebula z-0"></motion.div>
       <div className="space-y-6 max-w-3xl z-10">
         <motion.h1 
           variants={letterContainerVariants}
