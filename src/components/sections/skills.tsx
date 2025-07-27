@@ -43,7 +43,7 @@ export default function Skills() {
             whileHover={{ scale: 1.05, y: -10 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <Card className="hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 transform-style-3d h-full">
+            <Card className="hover:border-primary/50 transition-all duration-300 transform-style-3d h-full group cosmic-spark-hover">
               <CardHeader className="flex flex-row items-center gap-4 pb-4">
                 {category.icon}
                 <CardTitle className="text-2xl">{category.title}</CardTitle>
