@@ -26,7 +26,7 @@ const projects: Project[] = [
     title: "Sign Language Translator App",
     description: "Real-time ISL to text translation in all regional languages.",
     longDescription: "Real-time ISL to text translation in all regional languages using MediaPipe and TensorFlow Lite. Built responsive front-end interfaces using React and Tailwind, Integrated backend APIs to fetch and display dynamic data.",
-    image: "https://static01.nyt.com/images/2024/03/04/crosswords/04gameplay-asl-art/04gameplay-asl-art-square320.jpg",
+    image: "https://static01.nyt.com/images/2024/03/04/crosswords/04gameplay-asl-art/04gameplay-asl-art-square320.jpg?quality=75&auto=webp&disable=upscale",
     imageHint: "sign language",
     tags: ["MediaPipe", "TensorFlow Lite", "React", "Tailwind"],
   },
@@ -34,7 +34,7 @@ const projects: Project[] = [
     title: "Gesture-Controlled Racing Game",
     description: "Control gameplay in Need for Speed using a webcam.",
     longDescription: "Developed a real-time hand gesture recognition system to control gameplay in Need for Speed using a webcam using OpenCV, MediaPipe, Python.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMiRp56ehUts3rR_luctaPGEx7TXd1AH4CiQ&s",
     imageHint: "racing game",
     tags: ["OpenCV", "MediaPipe", "Python", "Gesture Recognition"],
   }
