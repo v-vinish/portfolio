@@ -6,7 +6,7 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+    <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
       <div className="grid gap-12 lg:grid-cols-5">
         <div className="lg:col-span-2 space-y-4">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">

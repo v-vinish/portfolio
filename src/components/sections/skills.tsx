@@ -29,13 +29,13 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+    <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
       <h2 className="text-3xl font-bold tracking-tighter text-center sm:text-4xl md:text-5xl font-headline mb-12">
         My Skills
       </h2>
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {skillCategories.map((category) => (
-          <Card key={category.title} className="hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-2">
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 perspective">
+        {skillCategories.map((category, index) => (
+          <Card key={category.title} className="hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 transform-style-3d hover:-translate-y-2" style={{ transform: `rotateY(${(index - 1) * 10}deg)` }}>
             <CardHeader className="flex flex-row items-center gap-4 pb-4">
               {category.icon}
               <CardTitle className="text-2xl">{category.title}</CardTitle>

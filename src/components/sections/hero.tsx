@@ -4,7 +4,7 @@ import { MoveRight } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="container mx-auto flex flex-col items-center justify-center text-center py-16 md:py-24 px-4 md:px-6">
+    <section className="container mx-auto flex flex-col items-center justify-center text-center py-12 md:py-16 px-4 md:px-6">
       <div className="space-y-6 max-w-3xl animate-fade-in-up">
         <h1 className="text-5xl font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-400 to-accent">
           Vinish V

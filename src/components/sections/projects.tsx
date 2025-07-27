@@ -53,13 +53,13 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
+    <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
       <h2 className="text-3xl font-bold tracking-tighter text-center sm:text-4xl md:text-5xl font-headline mb-12">
         Featured Projects
       </h2>
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 perspective">
         {projects.map((project, index) => (
-          <Card key={index} className="flex flex-col overflow-hidden group transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-2">
+          <Card key={index} className="flex flex-col overflow-hidden group transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 transform-style-3d hover:rotate-y-[-10deg] hover:-translate-y-2">
             <CardHeader className="p-0">
               <div className="overflow-hidden rounded-t-lg">
                 <Image
