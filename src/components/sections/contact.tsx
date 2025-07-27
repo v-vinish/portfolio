@@ -62,6 +62,18 @@ export default function Contact() {
           </Link>
         </Button>
       </motion.div>
+      <div className="text-center mt-8 space-y-2">
+        <p className="text-muted-foreground">
+          <a href="mailto:viniv6687@gmail.com" className="hover:text-primary transition-colors">
+            viniv6687@gmail.com
+          </a>
+        </p>
+        <p className="text-muted-foreground">
+           <a href="tel:+919025349047" className="hover:text-primary transition-colors">
+            +91 9025349047
+           </a>
+        </p>
+      </div>
     </div>
   );
 }
