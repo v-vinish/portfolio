@@ -54,7 +54,7 @@ export default function Hero() {
           variants={letterContainerVariants}
           initial="before"
           animate="after"
-          className="text-5xl font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-400 to-accent floating flex"
+          className="text-5xl font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-400 to-accent floating flex justify-center"
         >
           {name.split('').map((letter, index) => (
             <motion.div key={index} variants={letterVariants} whileHover="hover">
