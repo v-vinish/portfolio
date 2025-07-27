@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Code2 } from 'lucide-react';
+import { Code2, Mail, Phone } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,9 +13,23 @@ export default function Footer() {
             <p className="text-sm">Vinish V</p>
           </Link>
         </div>
-        <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-          &copy; {currentYear} Vinish V. All rights reserved.
-        </p>
+        <div className="flex flex-col items-center gap-4 md:flex-row md:gap-8">
+            <div className="flex items-center gap-2">
+                <Mail className="h-4 w-4 text-muted-foreground" />
+                <a href="mailto:viniv6687@gmail.com" className="text-sm text-muted-foreground hover:text-primary">
+                viniv6687@gmail.com
+                </a>
+            </div>
+            <div className="flex items-center gap-2">
+                <Phone className="h-4 w-4 text-muted-foreground" />
+                <a href="tel:+919025349047" className="text-sm text-muted-foreground hover:text-primary">
+                +91 9025349047
+                </a>
+            </div>
+            <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
+              &copy; {currentYear} Vinish V. All rights reserved.
+            </p>
+        </div>
       </div>
     </footer>
   );
