@@ -65,6 +65,7 @@ export function ContactForm() {
           setIsSubmitting(false);
         },
         (error) => {
+          console.error("EmailJS Error:", error);
           toast({
             title: "Error",
             description: "Failed to send the message, please try again.",
