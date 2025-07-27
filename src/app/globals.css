@@ -212,10 +212,3 @@
 .floating {
   animation: float 6s ease-in-out infinite;
 }
-
-/* Disable floating on mobile */
-@media (max-width: 768px) {
-  .floating {
-    animation: none;
-  }
-}

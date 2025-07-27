@@ -14,19 +14,19 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
-        <AnimatedSection id="about" className="w-full md:floating">
+        <AnimatedSection id="about" className="w-full floating">
           <About />
         </AnimatedSection>
-        <AnimatedSection id="experience" className="w-full md:floating" style={{animationDelay: '1s'}}>
+        <AnimatedSection id="experience" className="w-full floating" style={{animationDelay: '1s'}}>
           <Experience />
         </AnimatedSection>
-        <AnimatedSection id="projects" className="w-full md:floating" style={{animationDelay: '2s'}}>
+        <AnimatedSection id="projects" className="w-full floating" style={{animationDelay: '2s'}}>
           <Projects />
         </AnimatedSection>
-        <AnimatedSection id="skills" className="w-full md:floating" style={{animationDelay: '3s'}}>
+        <AnimatedSection id="skills" className="w-full floating" style={{animationDelay: '3s'}}>
           <Skills />
         </AnimatedSection>
-        <AnimatedSection id="contact" className="w-full md:floating" style={{animationDelay: '4s'}}>
+        <AnimatedSection id="contact" className="w-full floating" style={{animationDelay: '4s'}}>
           <Contact />
         </AnimatedSection>
       </main>
