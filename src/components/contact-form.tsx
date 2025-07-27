@@ -51,6 +51,8 @@ export function ContactForm() {
     const templateID = "template_48m2slc";
     const publicKey = "ifoS_q1tHPyT4brhY";
 
+    console.log("Sending with data:", templateParams);
+
     emailjs
       .send(serviceID, templateID, templateParams, publicKey)
       .then(
@@ -65,7 +67,7 @@ export function ContactForm() {
           setIsSubmitting(false);
         },
         (error) => {
-          console.error("EmailJS Error:", error);
+          console.error("EmailJS Error:", error.text || error);
           toast({
             title: "Error",
             description: "Failed to send the message, please try again.",
