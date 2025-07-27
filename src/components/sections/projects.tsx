@@ -26,7 +26,7 @@ const projects: Project[] = [
     title: "Sign Language Translator App",
     description: "Real-time ISL to text translation in all regional languages.",
     longDescription: "Real-time ISL to text translation in all regional languages using MediaPipe and TensorFlow Lite. Built responsive front-end interfaces using React and Tailwind, Integrated backend APIs to fetch and display dynamic data.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://static01.nyt.com/images/2024/03/04/crosswords/04gameplay-asl-art/04gameplay-asl-art-square320.jpg",
     imageHint: "sign language",
     tags: ["MediaPipe", "TensorFlow Lite", "React", "Tailwind"],
   },
