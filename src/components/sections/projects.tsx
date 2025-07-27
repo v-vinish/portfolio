@@ -37,16 +37,6 @@ const projects: Project[] = [
     image: "https://placehold.co/600x400.png",
     imageHint: "racing game",
     tags: ["OpenCV", "MediaPipe", "Python", "Gesture Recognition"],
-  },
-  {
-    title: "Portfolio Website",
-    description: "My personal space on the internet to showcase my work.",
-    longDescription: "A personal portfolio website built with Next.js and Tailwind CSS to showcase my projects, skills, and experience. It's designed to be fully responsive and performant.",
-    image: "https://placehold.co/600x400.png",
-    imageHint: "developer portfolio",
-    tags: ["Next.js", "React", "Tailwind CSS"],
-    liveUrl: "/",
-    repoUrl: "https://github.com/vinish-v/portfolio"
   }
 ];
 
