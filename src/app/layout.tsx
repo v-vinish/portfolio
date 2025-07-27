@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { Inter } from 'next/font/google';
 import Fireworks from '@/components/fireworks';
+import Spidey from '@/components/spidey';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${inter.variable} font-body antialiased`}>
+        <Spidey />
         <Fireworks />
         {children}
         <Toaster />
