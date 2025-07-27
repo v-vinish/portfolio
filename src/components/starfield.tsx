@@ -17,7 +17,9 @@ const Starfield: React.FC = () => {
 
         let stars: Star[] = [];
         const numStars = 500;
-        
+
+        let fireworks: Firework[] = [];
+
         function random(min: number, max: number) {
             return Math.random() * (max - min) + min;
         }
@@ -34,7 +36,7 @@ const Starfield: React.FC = () => {
             }
 
             update() {
-                this.z -= 2; // speed
+                this.z -= 1; // speed
                 if (this.z < 1) {
                     this.z = width;
                     this.x = random(-width / 2, width / 2);
@@ -60,14 +62,116 @@ const Starfield: React.FC = () => {
             stars.push(new Star());
         }
 
+        class Particle {
+            x: number;
+            y: number;
+            vx: number;
+            vy: number;
+            alpha: number;
+            color: string;
+
+            constructor(x: number, y: number, color: string) {
+                this.x = x;
+                this.y = y;
+                this.vx = random(-2, 2);
+                this.vy = random(-2, 2);
+                this.alpha = 1;
+                this.color = color;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.alpha -= 0.02;
+            }
+
+            draw() {
+                ctx!.globalAlpha = this.alpha;
+                ctx!.fillStyle = this.color;
+                ctx!.beginPath();
+                ctx!.arc(this.x, this.y, 2, 0, Math.PI * 2);
+                ctx!.fill();
+            }
+        }
+
+        class Firework {
+            x: number;
+            y: number;
+            targetX: number;
+            targetY: number;
+            vx: number;
+            vy: number;
+            exploded: boolean;
+            particles: Particle[];
+            color: string;
+
+            constructor() {
+                this.x = random(width * 0.2, width * 0.8);
+                this.y = height;
+                this.targetX = random(this.x - width * 0.1, this.x + width * 0.1);
+                this.targetY = random(height * 0.2, height * 0.5);
+                this.vx = (this.targetX - this.x) / 50;
+                this.vy = (this.targetY - this.y) / 50;
+                this.exploded = false;
+                this.particles = [];
+                const hue = random(0, 360);
+                this.color = `hsl(${hue}, 100%, 50%)`;
+            }
+
+            update() {
+                if (!this.exploded) {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    if (this.y <= this.targetY) {
+                        this.exploded = true;
+                        for (let i = 0; i < 50; i++) {
+                            this.particles.push(new Particle(this.x, this.y, this.color));
+                        }
+                    }
+                } else {
+                    this.particles.forEach(p => p.update());
+                    this.particles = this.particles.filter(p => p.alpha > 0);
+                }
+            }
+
+            draw() {
+                if (!this.exploded) {
+                    ctx!.fillStyle = this.color;
+                    ctx!.beginPath();
+                    ctx!.arc(this.x, this.y, 3, 0, Math.PI * 2);
+                    ctx!.fill();
+                } else {
+                    this.particles.forEach(p => p.draw());
+                }
+            }
+        }
+
+
         let animationFrameId: number;
         function loop() {
-            ctx!.fillStyle = 'rgba(0, 0, 0, 0.25)'; // a bit of trail
+            ctx!.globalCompositeOperation = 'source-over';
+            ctx!.globalAlpha = 0.1;
+            ctx!.fillStyle = 'black';
             ctx!.fillRect(0, 0, width, height);
+            
+            ctx!.globalCompositeOperation = 'lighter';
+            ctx!.globalAlpha = 1;
 
             stars.forEach(star => {
                 star.update();
                 star.draw();
+            });
+
+            if (random(0, 100) < 2) {
+                fireworks.push(new Firework());
+            }
+
+            fireworks.forEach((f, i) => {
+                f.update();
+                f.draw();
+                if(f.exploded && f.particles.length === 0) {
+                    fireworks.splice(i, 1);
+                }
             });
 
             animationFrameId = requestAnimationFrame(loop);
