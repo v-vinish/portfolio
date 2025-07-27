@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { MoveRight } from 'lucide-react';
+import { MoveRight, Github, Linkedin, Mail } from 'lucide-react';
 
 const letterContainerVariants = {
   before: { transition: { staggerChildren: 0.05 } },
@@ -85,6 +85,28 @@ export default function Hero() {
           <Button asChild variant="outline" size="lg">
             <Link href="#contact">Get In Touch</Link>
           </Button>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="flex justify-center gap-4 mt-4"
+        >
+            <Button asChild variant="outline" size="icon">
+              <Link href="mailto:viniv6687@gmail.com" aria-label="Email">
+                <Mail className="h-5 w-5" />
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="icon">
+              <Link href="https://www.linkedin.com/in/vinish-v-80bb1020b" target="_blank" aria-label="LinkedIn">
+                <Linkedin className="h-5 w-5" />
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="icon">
+              <Link href="https://github.com/vinish-v" target="_blank" aria-label="GitHub">
+                <Github className="h-5 w-5" />
+              </Link>
+            </Button>
         </motion.div>
       </div>
     </section>
