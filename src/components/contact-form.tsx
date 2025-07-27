@@ -41,8 +41,8 @@ export function ContactForm() {
     setIsSubmitting(true);
 
     const templateParams = {
-      name: name,
-      email: email,
+      from_name: name,
+      reply_to: email,
       message: message,
     };
 
@@ -56,7 +56,8 @@ export function ContactForm() {
     emailjs
       .send(serviceID, templateID, templateParams, publicKey)
       .then(
-        () => {
+        (result) => {
+          console.log("Email sent:", result.text);
           toast({
             title: "Success!",
             description: "Your message has been sent successfully.",
